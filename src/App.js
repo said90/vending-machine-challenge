@@ -39,38 +39,45 @@ function App() {
         display="flex"
         flexDirection="row"
         width="100vw"
-        bg="primary"
         height="100vh"
         flexWrap="wrap"
       >
         <Box
+          style={{
+            backgroundColor: " #2f4353",
+            backgroundImage: "linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%)",
+          }}
           display="flex"
           flexDirection="row"
           width="55vw"
-          bg="primary"
           flexWrap="wrap"
           alignItems="center"
           maxHeight="100vh"
           overflowY="scroll"
         >
+          
           <Box
             display="flex"
             flexDirection="row"
             justifyContent="center"
             color="white"
-            bg="#2196F3"
-            mb={0.8}
-            width="100vw"
+            bg="#2f4353"
+            width="100%"
+            height="5%"
           >
             <Label>Vendor Products</Label>
           </Box>
+          <Box display="flex" flexWrap="wrap" justifyContent="center" alignItems="center" height="95%" width="100%">
           {loading ? (
-            <Spinner />
+            <Box display="flex" justifyContent="center" alignItems="center"  flex={1} width="100%" height="100%">
+            <Spinner  />
+            </Box>
           ) : (
             products?.map((item) => {
               return <Product key={uuidv4()} product={item} />;
             })
           )}
+          </Box>
         </Box>
 
         <Box
@@ -82,17 +89,21 @@ function App() {
           flexWrap="wrap"
           maxHeight="100vh"
           overflowY="scroll"
+          style={{
+            backgroundColor: " #2f4353",
+            backgroundImage: "linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%)",
+          }}
         >
-          <Box>
+          <Box display="flex" flexDirection="column" alignItems="center" >
             <Box
               display="flex"
-              flexDirection="row"
               justifyContent="center"
               mb={0.8}
-              bg="#2196F3"
+              bg="#2f4353"
               width="19vw"
+              height="5%"
             >
-              <Label display="flex" justifyContent="center" color="white">
+              <Label display="flex" justifyContent="center" alignItems="center" color="white">
                 {`In Process (${productsInProcess.length})`}
               </Label>
             </Box>
@@ -115,16 +126,20 @@ function App() {
           height="100vh"
           maxHeight="100vh"
           overflowY="scroll"
+          style={{
+            backgroundColor: " #2f4353",
+            backgroundImage: "linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%)",
+          }}
         >
-          <Box>
+          <Box display="flex" flexDirection="column" alignItems="center"  >
             <Box
               display="flex"
               flexWrap="wrap"
-              flexDirection="row"
               mb={0.8}
-              bg="#2196F3"
+              bg="#2f4353"
               justifyContent="center"
               width="24vw"
+              height="5%"
             >
               <Label color="white">{`Dispatched (${productsDispatched.length})`}</Label>
             </Box>
